@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<form method="GET" action="Cadastro">
+			Codigo:
+			<input type="text" id="codigo" name="codigo">
+                        <br>
+			Nome:
+			<input type="text" id="nome" name="nome">
+            <br>
+            Preco:
+			<input type="text" id="preco" name="preco">
+                        <br>
+                        <button type="submit"></button>
+		</form>
+	</body>
+</html>
