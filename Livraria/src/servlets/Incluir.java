@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bd.BDSQLServer;
-import bd.daos.*;
-import bd.dbos.*;
+import bd.daos.Livros;
+import bd.dbos.Livro;
 
 /**
  * Servlet implementation class Incluir
  */
-@WebServlet("/Cadastro")
+@WebServlet("/Incluir")
 public class Incluir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,10 +40,11 @@ public class Incluir extends HttpServlet {
 			Livros.incluir(livro);
 			
 			// response.getWriter().append("Served at: ").append(request.getContextPath());
-			response.sendRedirect("Sucesso.html");
+			response.getWriter().append("<label style=\"color: green\">Sucesso!</label>");
 			
 		} catch(Exception e) {
-			response.sendRedirect("Erro.html");
+			response.getWriter().append("<label style=\"color: red\">" 
+					+ e.getMessage() + "</label>");
 		}
 	}
 

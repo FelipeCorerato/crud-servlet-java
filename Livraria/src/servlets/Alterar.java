@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bd.daos.Livros;
+import bd.dbos.Livro;
+
 /**
- * Servlet implementation class Cadastro
+ * Servlet implementation class Alterar
  */
-@WebServlet("/Cadastro")
-public class Cadastro extends HttpServlet {
+@WebServlet("/Alterar")
+public class Alterar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Cadastro() {
+    public Alterar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +30,22 @@ public class Cadastro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			int codigo = Integer.parseInt(request.getParameter("codigo"));
+			String nome = request.getParameter("nome");
+			float preco = Float.parseFloat(request.getParameter("preco"));
+			
+			Livro livro = new Livro(codigo, nome, preco);
+			
+			Livros.alterar(livro);
+			
+			// response.getWriter().append("Served at: ").append(request.getContextPath());
+			response.getWriter().append("<label style=\"color: green\">Sucesso!</label>");
+			
+		} catch(Exception e) {
+			response.getWriter().append("<label style=\"color: red\">" 
+					+ e.getMessage() + "</label>");
+		}
 	}
 
 	/**

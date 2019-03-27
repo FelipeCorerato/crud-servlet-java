@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="bd.dbos.Livro"/>
+<fullyQualifiedTypeName name="bd.core.MeuResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="bd.BDSQLServer"/>
+<fullyQualifiedTypeName name="bd.daos.Livros"/>
 </qualifiedTypeNameHistroy>

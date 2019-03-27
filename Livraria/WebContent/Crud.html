@@ -78,9 +78,9 @@
 		
 		<!-- Tab content -->
 		<div id="Incluir" class="tabcontent">
-		 	<h5>Incluir</h5>
-			<form method="GET" action="Cadastro">
-				Codigo:
+		 	<h4>Incluir</h4>
+			<form method="GET" action="Incluir">
+				Código do Livro:
 				<input type="text" id="codigo" name="codigo">
 	            <br>
 				Nome:
@@ -89,23 +89,41 @@
 	            Preco:
 				<input type="text" id="preco" name="preco">
 	            <br>
-	            <button type="submit">Incluir</button>
+	            <button class="btn waves-effect waves-light" type="submit">Incluir</button>
 			</form>
 		</div>
 		
 		<div id="Excluir" class="tabcontent">
-		  	<h5>Excluir</h5>
-		  	<p>Paris is the capital of France.</p>
+		  	<h4>Excluir</h4>
+		  	<form method="GET" action="Excluir">
+				Código do Livro:
+				<input type="text" id="codigo" name="codigo">
+	            <br>
+	            <button class="btn waves-effect waves-light" type="submit">Excluir</button>
+			</form>
 		</div>
 		
 		<div id="Alterar" class="tabcontent">
-		  	<h5>Alterar</h5>
-		  	<p>Tokyo is the capital of Japan.</p>
+		  	<h4>Alterar</h4>
+			<form method="GET" action="Alterar">
+				Código do Livro:
+				<input type="text" id="codigo" name="codigo">
+	            <br>
+				Novo Nome:
+				<input type="text" id="nome" name="nome">
+	            <br>
+	            Novo Preco:
+				<input type="text" id="preco" name="preco">
+	            <br>
+	            <button class="btn waves-effect waves-light" type="submit">Alterar</button>
+			</form>
 		</div>
 		
 		<div id="Listar" class="tabcontent">
-		  	<h5>Listar</h5>
-		  	<p>Tokyo is the capital of Japan.</p>
+		  	<h4>Listar</h4>
+		  	<form method="GET" action="Listar">
+		  		<button class="btn waves-effect waves-light s12 l12" type="submit">Listar</button>
+		  	</form>
 		</div>
 		
 	</body>

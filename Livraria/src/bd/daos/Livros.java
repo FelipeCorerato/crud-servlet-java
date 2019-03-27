@@ -121,8 +121,8 @@ public class Livros
             String sql;
 
             sql = "UPDATE LIVROS " +
-                  "SET NOME=? " +
-                  "SET PRECO=? " +
+                  "SET NOME=? , " +
+                  "PRECO=? " +
                   "WHERE CODIGO = ?";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
@@ -136,7 +136,7 @@ public class Livros
         }
         catch (SQLException erro)
         {
-            throw new Exception ("Erro ao atualizar dados de livro");
+            throw new Exception ("Erro ao atualizar dados de livro: " + erro.getMessage());
         }
     }
 
