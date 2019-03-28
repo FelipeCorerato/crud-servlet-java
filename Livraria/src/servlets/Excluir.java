@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bd.daos.Livros;
 import bd.dbos.Livro;
+import html.HTMLContent;
 
 /**
  * Servlet implementation class Excluir
@@ -31,16 +32,17 @@ public class Excluir extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			int codigo = Integer.parseInt(request.getParameter("codigo"));
+			response.getWriter().append(HTMLContent.htmlHeader);			
 			
+			int codigo = Integer.parseInt(request.getParameter("codigo"));			
 			Livros.excluir(codigo);
 			
 			// response.getWriter().append("Served at: ").append(request.getContextPath());
-			response.getWriter().append("<label style=\"color: green\">Sucesso!</label>");
+			response.getWriter().append(HTMLContent.sucesso);
 			
 		} catch (Exception e) {
-			response.getWriter().append("<label style=\"color: red\">" 
-					+ e.getMessage() + "</label>");
+			response.getWriter().append("<h4 class=\"red-text\">" 
+					+ e.getMessage() + "</h4>");
 		}
 	}
 

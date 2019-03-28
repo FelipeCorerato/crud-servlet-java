@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import bd.BDSQLServer;
 import bd.core.MeuResultSet;
 import bd.daos.Livros;
+import html.HTMLContent;
 
 /**
  * Servlet implementation class Listar
@@ -34,16 +35,16 @@ public class Listar extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			response.getWriter().append(HTMLContent.htmlHeader);
+			
 			MeuResultSet tabela = Livros.getLivros();
-	        while(tabela.next())
-	        {
-	        	response.getWriter().append(Integer.toString(tabela.getInt("codigo")));
-	        	response.getWriter().append(tabela.getString("nome"));
-	        	response.getWriter().append(String.format("%.2f", tabela.getFloat("preco")));
+			
+	        while(tabela.next()) {
+	        	response.getWriter().append(this.listarLivro(tabela.getInt("codigo"), tabela.getString("nome"), tabela.getFloat("preco")));
 			}
 		} catch (Exception e) {
-			response.getWriter().append("<label style=\"color: red\">" 
-					+ e.getMessage() + "</label>");
+			response.getWriter().append("<h4 class=\"red-text\">" 
+					+ e.getMessage() + "</h4>");
 		}
 	}
 
@@ -55,22 +56,20 @@ public class Listar extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected String listItem(int codigo, String nome, float preco) {
-		return "  <div class=\"row\">\r\n" + 
-				"    <div class=\"col s12 m6\">\r\n" + 
+	protected String listarLivro(int codigo, String nome, float preco) {
+		return 	"  <div class=\"row\">\r\n" + 
+				"    <div class=\"col s12 m12 l12\">\r\n" + 
 				"      <div class=\"card blue-grey darken-1\">\r\n" + 
 				"        <div class=\"card-content white-text\">\r\n" + 
 				"          <span class=\"card-title\">" + nome + "</span>\r\n" + 
-				"          <p>I am a very simple card. I am good at containing small bits of information.\r\n" + 
-				"          I am convenient because I require little markup to use effectively.</p>\r\n" + 
+				"          <p>Código: " + codigo +"</p>\r\n" + 
 				"        </div>\r\n" + 
 				"        <div class=\"card-action\">\r\n" + 
-				"          <a href=\"#\">This is a link</a>\r\n" + 
-				"          <a href=\"#\">This is a link</a>\r\n" + 
+				"          <a>$" + preco + "</a>" + 
 				"        </div>\r\n" + 
 				"      </div>\r\n" + 
 				"    </div>\r\n" + 
-				"  </div>"
+				"  </div>";
 	}
 
 }

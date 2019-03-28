@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bd.daos.Livros;
 import bd.dbos.Livro;
+import html.HTMLContent;
 
 /**
  * Servlet implementation class Incluir
@@ -31,6 +32,8 @@ public class Incluir extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			response.getWriter().append(HTMLContent.htmlHeader);
+			
 			int codigo = Integer.parseInt(request.getParameter("codigo"));
 			String nome = request.getParameter("nome");
 			float preco = Float.parseFloat(request.getParameter("preco"));
@@ -40,11 +43,12 @@ public class Incluir extends HttpServlet {
 			Livros.incluir(livro);
 			
 			// response.getWriter().append("Served at: ").append(request.getContextPath());
-			response.getWriter().append("<label style=\"color: green\">Sucesso!</label>");
+			
+			response.getWriter().append(HTMLContent.sucesso);
 			
 		} catch(Exception e) {
-			response.getWriter().append("<label style=\"color: red\">" 
-					+ e.getMessage() + "</label>");
+			response.getWriter().append("<h4 class=\"red-text\">" 
+					+ e.toString() + "</h4>");
 		}
 	}
 

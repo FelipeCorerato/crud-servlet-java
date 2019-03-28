@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="bd.BDSQLServer"/>
 <fullyQualifiedTypeName name="bd.daos.Livros"/>
+<fullyQualifiedTypeName name="html.HTMLContent"/>
 </qualifiedTypeNameHistroy>
